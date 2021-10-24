@@ -1,0 +1,27 @@
+---
+  - name: Creating volume
+    file:
+      path: /root/webpage
+      state: directory
+
+  - name: Copy content of webpage to dockerhost
+    copy:
+      dest: "/root/webpage"
+      src: "index.html" 
+
+  - name: pull docker image
+    docker_image:
+      name: httpd
+      source: pull
+
+  - name: launch container 
+    docker_container:
+      name: webos
+      image: httpd
+      state: started
+      detach: yes
+      interactive: yes
+      ports:
+        - "8080:80"
+      volumes:
+        - /root/webpage/:/usr/local/apache2/htdocs
