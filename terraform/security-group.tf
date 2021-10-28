@@ -48,7 +48,7 @@ resource "aws_security_group" "controller-security" {
 }
 
 resource "aws_security_group" "private-machine" {
-  name        = "sg-private-machine"
+  name        = "private-machine"
   description = "SG for Private Machines"
   vpc_id      = aws_vpc.wave-finalproject-1.id
 
@@ -81,6 +81,6 @@ resource "aws_security_group" "private-machine" {
   ]
 
   tags = {
-    Name = "sg-private-machine"
+    Name = "private-machine"
   }
 }

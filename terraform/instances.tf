@@ -3,14 +3,14 @@ resource "aws_instance" "part1-ansible-controller" {
   ami = "ami-0a8e758f5e873d1c1"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.subnet-1.id
-  security_groups = [ "aws_security_group.controller-security.id" ]
+  vpc_security_group_ids = ["aws_security_group.controller-security.id"]
   key_name = var.key
   tags = {
       Name = "part1-ansible-controller"
   }
 
   provisioner "file" {
-    source      = var.key
+    source      = var.location
     destination = "home/ubuntu"
   }
 
@@ -26,13 +26,12 @@ resource "aws_instance" "part1-ansible-controller" {
       "echo '[servers]' > ansible/inventory",
       "echo ${aws_instance.part1-web-server-1.private_ip} >> ansible/inventory",
       "echo ${aws_instance.part1-web-server-2.private_ip} >> ansible/inventory",
-      "cp id_rsa key.pem",
       "chmod 600 key.pem"
     ]
   }
 
   provisioner "local-exec" {
-    inline = "ansible-playbook -i task.yml"
+    command = "ansible-playbook -i task.yml"
   }
 }
 
@@ -42,7 +41,7 @@ resource "aws_instance" "part1-web-server-1" {
   ami = "ami-0a8e758f5e873d1c1"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.subnet-2.id
-  security_groups = [ "aws_security_group.private-machine.id" ]
+  vpc_security_group_ids = ["aws_security_group.private-security.id"]
   key_name = var.key
   tags = {
       Name = "part1-web-server-1"
@@ -54,7 +53,7 @@ resource "aws_instance" "part1-web-server-2" {
   ami = "ami-0a8e758f5e873d1c1"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.subnet-3.id
-  security_groups = [ "aws_security_group.private-machine.id" ]
+  vpc_security_group_ids = ["aws_security_group.private-security.id"]
   key_name = var.key
   tags = {
       Name = "part1-web-server-2"

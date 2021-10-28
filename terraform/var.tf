@@ -3,5 +3,9 @@ variable "ssh-user" {
 }
 
 variable "key" {
-  default     = "~/.ssh/id_rsa"
+  default     = "part1-public-key"
+}
+
+variable "location" {
+  default     = "/home/ubuntu"
 }
