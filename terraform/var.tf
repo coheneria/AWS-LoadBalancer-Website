@@ -7,5 +7,9 @@ variable "key" {
 }
 
 variable "location" {
-  default     = "/home/ubuntu"
+  default     = "../ansible"
+}
+
+variable "pem" {
+  default     = "../../key.pem"
 }
