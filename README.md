@@ -2,7 +2,7 @@
 
 This project came to demonstrate how to expose web application with Application Load Balancer on AWS. <br/>
 <p align="center">
-  <img src="https://github.com/coheneria/devops-finalproject-part1/blob/main/files/photos/part1.png" width="100%" height="100%" />
+  <img src="https://github.com/coheneria/devops-finalproject-part1/blob/main/files/photos/infra.png" width="100%" height="100%" />
 </p>
 
 ## Tools used for this project :
