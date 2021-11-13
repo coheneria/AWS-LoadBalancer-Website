@@ -19,7 +19,8 @@ part1-public-key
 
 ### 02. Put the key on 
 ```bash
-ssh-keygen
+cd /home/ubuntu
+vi key.pem
 ```
 
 ### 03. Gave the key a permission of:
