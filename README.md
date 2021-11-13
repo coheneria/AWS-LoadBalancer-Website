@@ -6,8 +6,8 @@ This project came to demonstrate how to expose web application with Application 
 </p>
 
 ## Tools used for this project :
-Terraform - for deploy our infrastructure on AWS <br/>
-Ansible - for deploy and configure Docker containers <br/>
+Terraform - for deploy our infrastructure on AWS. <br/>
+Ansible - for deploy and configure Docker containers. <br/>
 ALB - Application load balancer on AWS to expose our application to the world. <br/>
 
 ## Quick Start
@@ -17,7 +17,7 @@ ALB - Application load balancer on AWS to expose our application to the world. <
 part1-public-key
 ```
 
-### 02. Put the key on 
+### 02. Put the key on:
 ```bash
 cd /home/ubuntu
 vi key.pem
@@ -43,7 +43,7 @@ rettafom plan
 terraform apply -auto-approve
 ```
 
-### 06. Destroy the infrastructure when finish.
+### 06. Destroy the infrastructure when finish:
 ```bash
 terraform destroy -auto-approve
 ```
