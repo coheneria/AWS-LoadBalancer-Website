@@ -4,8 +4,8 @@ resource "aws_lb_target_group" "wave-target-group" {
     path                = "/"
     protocol            = "HTTP"
     timeout             = 5
-    healthy_threshold   = 5
-    unhealthy_threshold = 2
+    healthy_threshold   = 2
+    unhealthy_threshold = 6
   }
 
   name        = "wave-target-group"
