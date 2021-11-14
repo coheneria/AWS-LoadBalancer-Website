@@ -61,6 +61,10 @@ resource "aws_instance" "part1-ansible-controller" {
       host        = aws_instance.part1-ansible-controller.public_ip
     }
   }
+  depends_on = [
+    aws_instance.part1-web-server-1,
+    aws_instance.part1-web-server-2
+  ]
 }
 
 # Creating private instance on subnet-private-1 that will contain docker-web

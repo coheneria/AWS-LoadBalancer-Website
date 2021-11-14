@@ -13,6 +13,9 @@ resource "aws_lb_target_group" "wave-target-group" {
   protocol    = "HTTP"
   target_type = "instance"
   vpc_id      = aws_vpc.wave-finalproject-1.id
+  depends_on = [
+    aws_instance.part1-ansible-controller,
+  ]
 }
 
 resource "aws_lb_target_group_attachment" "wave-instance-01" {
